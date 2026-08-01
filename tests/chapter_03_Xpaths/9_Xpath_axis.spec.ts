@@ -34,9 +34,29 @@ test("xpath axis", async ({page})=>{
     const descendanttd:Locator = page.locator("//table[@id='customers']/descendant::td");
     await expect(descendanttd).toHaveCount(18);
 
+    //following axis, get all following td of the germany cell
+
+    const followingtd:Locator = page.locator("//td[normalize-space()='Germany']/following::td[1]");
+    await expect(followingtd).toHaveText("Centro comercial Moctezuma");
+
+    //following-sibling axis, get all following sibling td of the Maria Anders cell //right siblings
+    
+    const followingsiblingtd:Locator = page.locator("//td[normalize-space()='Maria Anders']/following-sibling::td");
+    await expect(followingsiblingtd).toHaveCount(1);
+
+    //preceding axis, get all preceding td of the germany cell
+    
+    const precedingtd:Locator = page.locator("//td[normalize-space()='Germany']/preceding::td[1]");
+    await expect(precedingtd).toHaveText("Maria Anders");
 
 
+    //preceding-sibling axis, get all preceding sibling td of the Maria Anders cell. // left siblings
 
+    const precedingsiblingtd:Locator = page.locator("//td[normalize-space()='Germany']/preceding-sibling::td");
+    await expect(precedingsiblingtd).toHaveCount(2);
+
+    expect(precedingsiblingtd.nth(1)).toHaveText("Maria Anders");
+    expect(precedingsiblingtd.nth(0)).toHaveText("Alfreds Futterkiste");
 
 
 })
