@@ -9,9 +9,9 @@ const option_text : string[] = (await dropdown_options.allTextContents()).map((t
 
 
 const myset = new Set<string[]>();
-const duplicates = string[] = [];
+const duplicates : string[] = [];
 
-for (text of option_text) {
+for (const text of option_text) {
     if (myset.has(text)) {
         duplicates.push(text);
     } else {
