@@ -105,9 +105,4 @@ expect(totalprice).toBe(7100);
 
 
 
-
-
-
-
-
 })
