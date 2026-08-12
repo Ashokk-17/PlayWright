@@ -70,7 +70,7 @@ searchbox.fill('Paul Byred');
 
 const rows=await page.locator("#myTable tbody tr").all();
 
-if(rows.length>=0){
+if(rows.length>=1){
 
     for(let row of rows){
         row.innerText();
@@ -81,7 +81,7 @@ else{
     console.log("No rows found");
 }
 
-
+//
 
 
 }
